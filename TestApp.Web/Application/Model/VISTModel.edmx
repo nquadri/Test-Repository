@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VISTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="VISTModelStoreContainer">
+          <EntitySet Name="Voter" EntityType="VISTModel.Store.Voter" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Voter">
+          <Key>
+            <PropertyRef Name="Certnum" />
+          </Key>
+          <Property Name="Certnum" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Birthdate" Type="datetime" />
+          <Property Name="SSN" Type="varchar" MaxLength="8" />
+          <Property Name="Drivers_License" Type="varchar" MaxLength="12" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="Precinct" Type="int" />
+          <Property Name="Grp" Type="varchar" MaxLength="1" />
+          <Property Name="RegDate" Type="datetime" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VISTModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="VISTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Voters" EntityType="VISTModel.Voter" />
+        </EntityContainer>
+        <EntityType Name="Voter">
+          <Key>
+            <PropertyRef Name="Certnum" />
+          </Key>
+          <Property Type="String" Name="Certnum" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Birthdate" />
+          <Property Type="String" Name="SSN" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Drivers_License" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Precinct" />
+          <Property Type="String" Name="Grp" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="RegDate" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VISTModelStoreContainer" CdmEntityContainer="VISTEntities">
+          <EntitySetMapping Name="Voters">
+            <EntityTypeMapping TypeName="VISTModel.Voter">
+              <MappingFragment StoreEntitySet="Voter">
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="Grp" ColumnName="Grp" />
+                <ScalarProperty Name="Precinct" ColumnName="Precinct" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Drivers_License" ColumnName="Drivers_License" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Certnum" ColumnName="Certnum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="VISTModel">
+        <EntityTypeShape EntityType="VISTModel.Voter" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916656" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
